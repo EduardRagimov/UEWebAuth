@@ -8,7 +8,7 @@ public class WebAuthUE5EditorTarget : TargetRules
 	public WebAuthUE5EditorTarget( TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Editor;
-		DefaultBuildSettings = BuildSettingsVersion.V2;
-		ExtraModuleNames.AddRange( new string[] { "WebAuthUE5" } );
+		DefaultBuildSettings = BuildSettingsVersion.Latest;
+		ExtraModuleNames.AddRange(["WebAuthUE5"]);
 	}
 }
