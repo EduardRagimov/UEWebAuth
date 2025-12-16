@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "UI/Menues/IngameMenuWidget.h"
+#include "UI/Menues/InGameMenuWidget.h"
 #include "WebAuthUE5/WebAuthUE5.h"
 
 #include "UI/Widgets/MyQuitGameWidget.h"
@@ -12,7 +12,7 @@
 #include "Components/EditableTextBox.h"
 
 
-bool UIngameMenuWidget::Initialize()
+bool UInGameMenuWidget::Initialize()
 {
 	HideAll();
 	ShowLogin("", "");
@@ -21,21 +21,21 @@ bool UIngameMenuWidget::Initialize()
 }
 
 
-int32 UIngameMenuWidget::GetOwnerUserIndex() const
+int32 UInGameMenuWidget::GetOwnerUserIndex() const
 {
 	return m_PlayerOwner ? m_PlayerOwner->GetControllerId() : 0;
 }
 
-void UIngameMenuWidget::OnMenuGoBack(UINT32 menuIDX_ = 0)
+void UInGameMenuWidget::OnMenuGoBack(UINT32 menuIDX_ = 0)
 {
 }
 
-void UIngameMenuWidget::CloseSubMenu()
+void UInGameMenuWidget::CloseSubMenu()
 {
 	OnMenuGoBack();
 }
 
-void UIngameMenuWidget::SetOwner(ULocalPlayer* playerOwner_)
+void UInGameMenuWidget::SetOwner(ULocalPlayer* playerOwner_)
 {
 	isShown = false;
 
@@ -62,7 +62,7 @@ void UIngameMenuWidget::SetOwner(ULocalPlayer* playerOwner_)
 	int32 const OwnerUserIndex = GetOwnerUserIndex();
 }
 
-void UIngameMenuWidget::ToggleGameMenu()
+void UInGameMenuWidget::ToggleGameMenu()
 {
 	if (GEngine) // DBG
 	{
@@ -106,18 +106,18 @@ void UIngameMenuWidget::ToggleGameMenu()
 	}
 }
 
-bool UIngameMenuWidget::GetIsGameMenuUp() const
+bool UInGameMenuWidget::GetIsGameMenuUp() const
 {
 	return isShown;
 }
 
-void UIngameMenuWidget::OnBack()
+void UInGameMenuWidget::OnBack()
 {
 	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Cyan, TEXT("UIngameMenuWidget::OnBack()"));
 	Hide();
 }
 
-void UIngameMenuWidget::OnLogin()
+void UInGameMenuWidget::OnLogin()
 {
 	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("UIngameMenuWidget::OnLogin()"));
 
@@ -134,7 +134,7 @@ void UIngameMenuWidget::OnLogin()
 	HideLogin();
 }
 
-void UIngameMenuWidget::Show()
+void UInGameMenuWidget::Show()
 {
 	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Blue, TEXT("UIngameMenuWidget::Show()"));
 
@@ -143,7 +143,7 @@ void UIngameMenuWidget::Show()
 	isShown = true;
 }
 
-void UIngameMenuWidget::Hide()
+void UInGameMenuWidget::Hide()
 {
 	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("UIngameMenuWidget::Hide()"));
 
@@ -155,7 +155,7 @@ void UIngameMenuWidget::Hide()
 	}
 }
 
-void UIngameMenuWidget::HideAll()
+void UInGameMenuWidget::HideAll()
 {
 	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("UIngameMenuWidget::HideAll()"));
 
@@ -164,7 +164,7 @@ void UIngameMenuWidget::HideAll()
 	HideQuit();
 }
 
-void UIngameMenuWidget::HideAllLoggedIn()
+void UInGameMenuWidget::HideAllLoggedIn()
 {
 	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("UIngameMenuWidget::HideAllLogedIn()"));
 
@@ -172,7 +172,7 @@ void UIngameMenuWidget::HideAllLoggedIn()
 	HideQuit();
 }
 
-void UIngameMenuWidget::ShowRegister()
+void UInGameMenuWidget::ShowRegister()
 {
 	if (hudRegisterWidget)
 	{
@@ -181,7 +181,7 @@ void UIngameMenuWidget::ShowRegister()
 	}
 }
 
-void UIngameMenuWidget::HideRegister()
+void UInGameMenuWidget::HideRegister()
 {
 	if (hudRegisterWidget)
 	{
@@ -189,7 +189,7 @@ void UIngameMenuWidget::HideRegister()
 	}
 }
 
-void UIngameMenuWidget::ShowLogin(const FString username_, const FString password_)
+void UInGameMenuWidget::ShowLogin(const FString username_, const FString password_)
 {
 	if (hudLoginWidget)
 	{
@@ -209,7 +209,7 @@ void UIngameMenuWidget::ShowLogin(const FString username_, const FString passwor
 	}
 }
 
-void UIngameMenuWidget::HideLogin()
+void UInGameMenuWidget::HideLogin()
 {
 	if (hudLoginWidget)
 	{
@@ -218,13 +218,13 @@ void UIngameMenuWidget::HideLogin()
 	}
 }
 
-void UIngameMenuWidget::ShowQuit()
+void UInGameMenuWidget::ShowQuit()
 {
 	HideAllLoggedIn();
 	hudQuitWidget->OnShow(this);
 }
 
-void UIngameMenuWidget::HideQuit()
+void UInGameMenuWidget::HideQuit()
 {
 	if (hudQuitWidget)
 	{
@@ -232,7 +232,7 @@ void UIngameMenuWidget::HideQuit()
 	}
 }
 
-void UIngameMenuWidget::CancelQuitGame()
+void UInGameMenuWidget::CancelQuitGame()
 {
 	ShowLogin("", "");
 }

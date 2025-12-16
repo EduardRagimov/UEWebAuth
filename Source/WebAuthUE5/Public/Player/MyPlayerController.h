@@ -6,7 +6,7 @@
 #include "GameFramework/PlayerController.h"
 #include "MyPlayerController.generated.h"
 
-class UIngameMenuWidget;
+class UInGameMenuWidget;
 
 /**
  * Player Controller
@@ -23,10 +23,10 @@ public:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Widgets", meta = (DisplayThumbnail))
-	TSubclassOf<UIngameMenuWidget> wMainMenu;
+	TSubclassOf<UInGameMenuWidget> wMainMenu;
 
 	UPROPERTY()
-	UIngameMenuWidget* m_MainMenu;
+	UInGameMenuWidget* m_MainMenu;
 
 private:
 	/* setup */

@@ -6,13 +6,14 @@
 #include "Blueprint/UserWidget.h"
 #include "Runtime/Online/HTTP/Public/Http.h"
 #include "Json.h"
-#include "JsonUtilities/Public/JsonUtilities.h"
+#include "JsonObjectConverter.h"
+// #include "JsonUtilities/Public/JsonUtilities.h"
 #include "MyUserRegistrationWidget.generated.h"
 
 
 class UButton;
 class UCheckBox;
-class UIngameMenuWidget;
+class UInGameMenuWidget;
 class UEditableTextBox;
 
 /**
@@ -40,7 +41,7 @@ public:
 	void RegisterResponse(FHttpRequestPtr request_, FHttpResponsePtr response_, bool bWasSuccessful_);
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
-	UIngameMenuWidget* m_ParentWidget;
+	UInGameMenuWidget* m_ParentWidget;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
 	UButton* RegisterButton;
@@ -67,7 +68,7 @@ public:
 	void OnCancel();
 
 	UFUNCTION(BlueprintCallable, Category = "UI")
-	void OnShow(UIngameMenuWidget* parent_);
+	void OnShow(UInGameMenuWidget* parent_);
 
 	UFUNCTION(BlueprintCallable, Category = "UI")
 	void OnHide();

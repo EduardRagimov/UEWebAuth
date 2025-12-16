@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
 #include "Components/CanvasPanel.h"
-#include "IngameMenuWidget.generated.h"
+#include "InGameMenuWidget.generated.h"
 
 // class UGameInstance;
 
@@ -19,7 +19,7 @@ class UMyQuitGameWidget;
  * InGame Menu widget	*
  * * * * * * * * * * * **/
 UCLASS(abstract)
-class UIngameMenuWidget : public UUserWidget
+class UInGameMenuWidget : public UUserWidget
 {
 	GENERATED_BODY()
 

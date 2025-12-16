@@ -2,7 +2,7 @@
 
 
 #include "Player/MyPlayerController.h"
-#include "UI/Menues/IngameMenuWidget.h"
+#include "UI/Menues/InGameMenuWidget.h"
 #include "Blueprint/UserWidget.h"
 
 AMyPlayerController::AMyPlayerController()
@@ -44,7 +44,7 @@ void AMyPlayerController::BeginPlay()
 	if (wMainMenu)
 	{
 		// Create the widget and store it.
-		m_MainMenu = CreateWidget<UIngameMenuWidget>(GetWorld(), wMainMenu);
+		m_MainMenu = CreateWidget<UInGameMenuWidget>(GetWorld(), wMainMenu);
 		
 		//let add it to the view port
 		if (m_MainMenu) 

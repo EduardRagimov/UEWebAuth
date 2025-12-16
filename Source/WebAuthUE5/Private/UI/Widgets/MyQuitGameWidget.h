@@ -7,7 +7,7 @@
 #include "MyQuitGameWidget.generated.h"
 
 class UButton;
-class UIngameMenuWidget;
+class UInGameMenuWidget;
 
 /**
  * Quit Game Dialog
@@ -19,7 +19,7 @@ class UMyQuitGameWidget : public UUserWidget
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
-	UIngameMenuWidget* m_ParentWidget;
+	UInGameMenuWidget* m_ParentWidget;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
 	UButton* ConfirmButton;
@@ -34,7 +34,7 @@ public:
 	void OnReject();
 
 	UFUNCTION(BlueprintCallable, Category = "UI")
-	void OnShow(UIngameMenuWidget* parent_);
+	void OnShow(UInGameMenuWidget* parent_);
 
 	UFUNCTION(BlueprintCallable, Category = "UI")
 	void OnHide();

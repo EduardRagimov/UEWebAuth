@@ -7,7 +7,7 @@
 #include "Async/Async.h"
 #include <regex>
 
-#include "UI/Menues/IngameMenuWidget.h"
+#include "UI/Menues/InGameMenuWidget.h"
 
 
 void UMyUserRegistrationWidget::Register(FRegistrationRequest credentials_)
@@ -110,7 +110,7 @@ void UMyUserRegistrationWidget::OnCancel()
 	}
 }
 
-void UMyUserRegistrationWidget::OnShow(UIngameMenuWidget* parent_)
+void UMyUserRegistrationWidget::OnShow(UInGameMenuWidget* parent_)
 {
 	canInteract = true;
 	asyncInProgress = false;

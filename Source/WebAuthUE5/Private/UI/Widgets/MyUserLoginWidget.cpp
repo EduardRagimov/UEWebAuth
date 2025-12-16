@@ -10,10 +10,10 @@
 
 #include <regex>
 
-#include "UI/Menues/IngameMenuWidget.h"
+#include "UI/Menues/InGameMenuWidget.h"
 
 
-void UMyUserLoginWidget::OnShow(UIngameMenuWidget* parent_ = nullptr)
+void UMyUserLoginWidget::OnShow(UInGameMenuWidget* parent_ = nullptr)
 {
 	canInteract = true;
 
@@ -107,13 +107,11 @@ void UMyUserLoginWidget::OnLogin()
 
 			return;
 		}
-		else
+		
+		/* print errors into status bar */
+		if (m_ParentWidget)
 		{
-			/* print errors into status bar */
-			if (m_ParentWidget)
-			{
-				FString errorMsg = FString::Printf(TEXT("PLEASE CHECK YOUR INPUT %s"), *errorSource);
-			}
+			FString errorMsg = FString::Printf(TEXT("PLEASE CHECK YOUR INPUT %s"), *errorSource);
 		}
 
 		canInteract = true;

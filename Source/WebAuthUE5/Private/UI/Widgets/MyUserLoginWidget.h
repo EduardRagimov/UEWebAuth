@@ -6,7 +6,8 @@
 #include "Blueprint/UserWidget.h"
 #include "Runtime/Online/HTTP/Public/Http.h"
 #include "Json.h"
-#include "JsonUtilities/Public/JsonUtilities.h"
+#include "JsonObjectConverter.h"
+// #include "JsonUtilities/Public/JsonUtilities.h"
 #include <Runtime/Online/HTTP/Public/Interfaces/IHttpRequest.h>
 
 #include "MyUserLoginWidget.generated.h"
@@ -14,7 +15,7 @@
 // FWD Declaration
 class UButton;
 class UCheckBox;
-class UIngameMenuWidget;
+class UInGameMenuWidget;
 class UEditableTextBox;
 
 /**
@@ -42,7 +43,7 @@ public:
 	void LoginResponse(FHttpRequestPtr request_, FHttpResponsePtr response_, bool bWasSuccessful_);
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
-	UIngameMenuWidget* m_ParentWidget;
+	UInGameMenuWidget* m_ParentWidget;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
 	UButton* LoginButton;
@@ -78,7 +79,7 @@ public:
 	void OnPasswordReset();
 
 	UFUNCTION(BlueprintCallable, Category = "UI")
-	void OnShow(UIngameMenuWidget* parent_);
+	void OnShow(UInGameMenuWidget* parent_);
 
 	UFUNCTION(BlueprintCallable, Category = "UI")
 	void OnHide();
@@ -96,7 +97,7 @@ private:
 	void SetAuthorizationHash(FString hash_, TSharedRef<IHttpRequest, ESPMode::ThreadSafe>& request_);
 
 	TSharedRef<IHttpRequest, ESPMode::ThreadSafe> RequestWithRoute(FString url_);
-	void SetRequestHeaders(TSharedRef<IHttpRequest, ESPMode::ThreadSafe>& request_);
+	static void SetRequestHeaders(TSharedRef<IHttpRequest, ESPMode::ThreadSafe>& request_);
 
 	TSharedRef<IHttpRequest, ESPMode::ThreadSafe> GetRequest(FString url_);
 	TSharedRef<IHttpRequest, ESPMode::ThreadSafe> PostRequest(FString url_, FString bodyJSON_);
@@ -111,5 +112,5 @@ private:
 
 	template <typename StructType>
 	static void StructFromJSON(FHttpResponsePtr Response, StructType& StructOutput);
-#pragma region
+#pragma endregion
 };

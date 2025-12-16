@@ -1,9 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "UI/Widgets/MyQuitGameWidget.h"
-#include "WebAuthUE5/WebAuthUE5.h"
-#include "UI/Menues/IngameMenuWidget.h"
+#include "UI/Menues/InGameMenuWidget.h"
 
 
 void UMyQuitGameWidget::OnAccept()
@@ -47,7 +45,7 @@ void UMyQuitGameWidget::OnReject()
 	}
 }
 
-void UMyQuitGameWidget::OnShow(UIngameMenuWidget* parent_)
+void UMyQuitGameWidget::OnShow(UInGameMenuWidget* parent_)
 {
 	canInteract = true;
 
