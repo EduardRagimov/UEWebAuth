@@ -40,6 +40,6 @@ public:
 	void OnHide();
 
 private:
-	/* hold imput */
+	/* hold input */
 	bool canInteract;
 };
