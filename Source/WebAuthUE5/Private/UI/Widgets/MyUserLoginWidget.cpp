@@ -75,8 +75,8 @@ void UMyUserLoginWidget::OnLogin()
 	{
 		canInteract = false;
 
-		auto login = LoginTextBox->Text.ToString();
-		auto psswd = PasswordTextBox->Text.ToString();
+		auto login = LoginTextBox->GetText().ToString();
+		auto psswd = PasswordTextBox->GetText().ToString();
 
 		login = login.TrimStart();
 

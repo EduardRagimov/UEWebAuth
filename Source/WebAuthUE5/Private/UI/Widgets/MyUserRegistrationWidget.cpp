@@ -36,7 +36,7 @@ void UMyUserRegistrationWidget::RegisterResponse(FHttpRequestPtr request_, FHttp
 	/* on register request success */
 	if (m_ParentWidget && !asyncInProgress)
 	{
-		m_ParentWidget->ShowLogin(EMailTextBox->Text.ToString(), PasswordTextBox->Text.ToString());
+		m_ParentWidget->ShowLogin(EMailTextBox->GetText().ToString(), PasswordTextBox->GetText().ToString());
 
 		m_ParentWidget->HideRegister();
 		return;
@@ -49,10 +49,10 @@ void UMyUserRegistrationWidget::OnRegister()
 
 	canInteract = false;
 
-	auto uName = LoginTextBox->Text.ToString();
-	auto email = EMailTextBox->Text.ToString();
-	auto psswd = PasswordTextBox->Text.ToString();
-	auto cpsswd = PasswordconfirmationTextBox->Text.ToString();
+	auto uName = LoginTextBox->GetText().ToString();
+	auto email = EMailTextBox->GetText().ToString();
+	auto psswd = PasswordTextBox->GetText().ToString();
+	auto cpsswd = PasswordconfirmationTextBox->GetText().ToString();
 
 	const std::regex uNamePattern("(\"[^\"]*\")|('[^\r]*)(\r\n)?.{4,17}");
 	const std::regex emailPattern("(\\w+)(\\.|_)?(\\w*)@(\\w+)(\\.(\\w+))+");
